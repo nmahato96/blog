@@ -19,6 +19,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/toastr.min.css') }}">
 </head>
 <body>
     <div id="app">
@@ -81,6 +82,12 @@
                             <a href="{{route('home')}}">Home</a>
                         </li>
                         <li class="list-group-item">
+                            <a href="{{route('categories')}}">Categories</a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="{{route('category.create')}}">Create new Category</a>
+                        </li>
+                        <li class="list-group-item">
                             <a href="{{route('post.create')}}">Create new post</a>
                         </li>
                     </ul>
@@ -94,5 +101,17 @@
             </div>
         </div>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="{{ asset('js/toastr.min.js') }}"></script>
+    <script>
+       
+        @if(Session::has('success'))
+            toastr.success("{{Session::get('success')}}")
+        @elseif(Session::has('update'))
+            toastr.info(" {{Session::get('update')}} ")
+        @elseif(Session::has('delete'))
+            toastr.error(" {{Session::get('delete')}} ")
+        @endif
+    </script>
 </body>
 </html>
