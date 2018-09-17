@@ -85,6 +85,24 @@
                             <a href="{{route('categories')}}">Categories</a>
                         </li>
                         <li class="list-group-item">
+                            <a href="{{route('tags.index')}}">Tags</a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="{{route('users')}}">Users</a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="{{route('user.create')}}">Create New User</a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="{{route('tag.create')}}">Create Tag</a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="{{route('posts')}}">All Posts</a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="{{route('post.trashed')}}">Trashed Posts</a>
+                        </li>
+                        <li class="list-group-item">
                             <a href="{{route('category.create')}}">Create new Category</a>
                         </li>
                         <li class="list-group-item">
@@ -111,6 +129,8 @@
             toastr.info(" {{Session::get('update')}} ")
         @elseif(Session::has('delete'))
             toastr.error(" {{Session::get('delete')}} ")
+        @elseif(Session::has('info'))
+            toastr.info(" {{Session::get('info')}} ")
         @endif
     </script>
 </body>

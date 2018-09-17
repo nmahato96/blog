@@ -9,7 +9,7 @@
 		<table class="table table-hover">
 			<thead>
 				<th>
-					Category Name
+					Tag Name
 				</th>
 				<th>
 					Editing
@@ -19,23 +19,23 @@
 				</th>
 			</thead>
 			<tbody>
-				@if($categories->count() > 0)
-					@foreach($categories as $category)
+				@if($tags->count() > 0)
+					@foreach($tags as $tag)
 				<tr>
 					<td>
-						{{$category->name}}
+						{{$tag->tag}}
 					</td>
 					<td>
-						<a href="{{ route('category.edit', ['id' => $category->id]) }}" class="btn btn-xs btn-info">Edit</a>
+						<a href="{{ route('tag.edit', ['id' => $tag->id]) }}" class="btn btn-xs btn-info">Edit</a>
 					</td>
 					<td>
-						<a href="{{ route('category.delete', ['id' => $category->id]) }}" class="btn btn-xs btn-danger">Delete</a>
+						<a href="{{ route('tag.delete', ['id' => $tag->id]) }}" class="btn btn-xs btn-danger">Delete</a>
 					</td>
 				</tr>
 				@endforeach
 				@else
 					<tr>
-					<td colspan="5" class="text-center">No Categories Yet!</td>
+					<td colspan="5" class="text-center">No Tags Yet!</td>
 				</tr>
 				@endif
 			</tbody>
